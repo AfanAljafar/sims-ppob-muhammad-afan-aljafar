@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardhistoryTx from "../../components/cardHistoryTx/CardhistoryTX";
+import CardHistoryTx from "../../components/cardHistoryTx/CardHistoryTx";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -96,7 +96,7 @@ const Transaction = () => {
             const sign = isTopup ? "+" : "-";
             const colorClass = isTopup ? "text-green-500" : "text-red-500";
             return (
-              <CardhistoryTx
+              <CardHistoryTx
                 key={i}
                 nominal={`${sign}${formatRupiah(record.total_amount)}`}
                 timestamp={formatWIBDateTime(record.created_on)}

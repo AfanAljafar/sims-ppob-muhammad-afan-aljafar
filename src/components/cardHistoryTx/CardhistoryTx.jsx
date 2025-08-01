@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardhistoryTx = (props) => {
+const CardHistoryTx = (props) => {
   return (
     <div>
       <div className="w-fullh h-fit flex flex-row py-4 px-8 rounded-lg border border-slate-500 items-center">
@@ -18,4 +18,4 @@ const CardhistoryTx = (props) => {
   );
 };
 
-export default CardhistoryTx;
+export default CardHistoryTx;

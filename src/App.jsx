@@ -1,17 +1,25 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./layout/Layout";
-import Login from "./pages/login/Login";
-import Registrasi from "./pages/registrasi/Registrasi";
-import Home from "./pages/home/Home";
-import Listrik from "./pages/listrik/Listrik";
-import TopUp from "./pages/topup/TopUp";
-import Transaction from "./pages/transaction/Transaction";
-import Akun from "./pages/akun/Akun";
-import ProtectedRoute from "./components/authGuard/AuthGuard";
+import { lazy, Suspense } from "react";
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center h-screen">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500" />
+  </div>
+);
+
+const Layout = lazy(() => import("./layout/Layout"));
+const Login = lazy(() => import("./pages/login/Login"));
+const Registrasi = lazy(() => import("./pages/registrasi/Registrasi"));
+const Home = lazy(() => import("./pages/home/Home"));
+const Listrik = lazy(() => import("./pages/listrik/Listrik"));
+const TopUp = lazy(() => import("./pages/topup/TopUp"));
+const Transaction = lazy(() => import("./pages/transaction/Transaction"));
+const Akun = lazy(() => import("./pages/akun/Akun"));
+const ProtectedRoute = lazy(() => import("./components/authGuard/AuthGuard"));
 
 function App() {
   return (
-    <>
+    <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/registrasi" element={<Registrasi />} />
@@ -39,7 +47,7 @@ function App() {
           <Route path="transaction" element={<Transaction />} />
         </Route>
       </Routes>
-    </>
+    </Suspense>
   );
 }
 
