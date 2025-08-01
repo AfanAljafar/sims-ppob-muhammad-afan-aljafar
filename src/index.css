@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply m-0 p-0;
+  }
+
+  body {
+    @apply m-0 antialiased font-sans overflow-x-hidden;
+  }
+
+  code {
+    @apply font-mono;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.swal2-actions-vertical-tailwind {
+  @apply flex flex-col gap-2 items-center mt-4;
+}
